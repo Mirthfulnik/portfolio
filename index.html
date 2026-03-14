@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIKITA SINOPALNIKOV // PORTFOLIO</title>
+<title>НИКИТА СИНОПАЛЬНИКОВ // PORTFOLIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -158,17 +158,18 @@
   }
   .header-subtitle span:hover { background: var(--orange); color: var(--black); transform: scale(1.05); }
 
-  .contacts { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+  .contacts { display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%; max-width: 400px; }
   .contact-item {
-    display: flex; align-items: center; gap: 12px; font-size: 8px; color: var(--gray);
+    display: flex; align-items: center; gap: 12px; font-size: 8px; color: var(--white);
     padding: 10px 20px; border: 2px solid var(--dark-gray);
     transition: all 0.15s; cursor: pointer; text-decoration: none;
+    word-break: break-all; width: 100%; justify-content: center;
   }
   .contact-item:hover {
     color: var(--black); background: var(--orange); border-color: var(--orange);
     transform: translateX(4px) translateY(-4px); box-shadow: -4px 4px 0 var(--orange-dim);
   }
-  .contact-item .icon { width: 20px; height: 20px; color: var(--orange); font-size: 12px; display: inline-flex; align-items: center; justify-content: center; }
+  .contact-item .icon { width: 20px; height: 20px; color: var(--orange); font-size: 12px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .contact-item:hover .icon { color: var(--black); }
 
   .scroll-hint {
@@ -200,7 +201,7 @@
   .project-number { font-size: 7px; color: var(--orange); letter-spacing: 3px; opacity: 0.6; }
   .project-title { font-size: 11px; color: var(--white); line-height: 2; text-shadow: 2px 2px 0 var(--orange-dim); }
   .project-tag { display: inline-block; font-size: 7px; background: var(--orange); color: var(--black); padding: 3px 8px; margin-bottom: 4px; letter-spacing: 1px; }
-  .project-desc { font-size: 8px; color: var(--gray); line-height: 2; flex-grow: 1; }
+  .project-desc { font-size: 8px; color: var(--white); line-height: 2; flex-grow: 1; }
 
   .stack-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
   .stack-item {
@@ -245,7 +246,7 @@
   .star { position: absolute; width: 3px; height: 3px; background: var(--orange); animation: blink var(--d,2s) step-end infinite; opacity: var(--o,0.5); }
   .footer-game-over { font-size: clamp(12px,3vw,20px); color: var(--orange); letter-spacing: 4px; margin-bottom: 8px; text-shadow: 3px 3px 0 var(--orange-dim); animation: glitch 8s linear infinite; }
   .footer-insert-coin { font-size: 8px; color: var(--white); letter-spacing: 2px; margin-bottom: 60px; opacity: 0.5; }
-  .footer-copyright { position: absolute; bottom: 20px; font-size: 7px; color: var(--gray); letter-spacing: 2px; }
+  .footer-copyright { margin-top: 40px; font-size: 7px; color: var(--gray); letter-spacing: 2px; text-align: center; line-height: 2.4; }
   .footer-copyright span { color: var(--orange); }
 
   .pixel-divider { text-align: center; padding: 20px; color: var(--orange); font-size: 10px; letter-spacing: 8px; opacity: 0.4; }
@@ -279,7 +280,7 @@
 </nav>
 
 <div class="ticker-wrap" style="margin-top:46px;">
-  <div class="ticker">★ VIBE DEVELOPER ★ PRODUCT MANAGER ★ INTERNET MARKETER ★ VIBE DEVELOPER ★ PRODUCT MANAGER ★ INTERNET MARKETER ★ VIBE DEVELOPER ★ PRODUCT MANAGER ★ INTERNET MARKETER ★&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div class="ticker">★ ВАЙБ-КОДЕР ★ ПРОДУКТОВЫЙ МЕНЕДЖЕР ★ ИНТЕРНЕТ-МАРКЕТОЛОГ ★ ВАЙБ-КОДЕР ★ ПРОДУКТОВЫЙ МЕНЕДЖЕР ★ ИНТЕРНЕТ-МАРКЕТОЛОГ ★ ВАЙБ-КОДЕР ★ ПРОДУКТОВЫЙ МЕНЕДЖЕР ★ ИНТЕРНЕТ-МАРКЕТОЛОГ ★&nbsp;&nbsp;&nbsp;&nbsp;</div>
 </div>
 
 <header>
@@ -295,31 +296,31 @@
     <div class="avatar-badge">ONLINE</div>
   </div>
 
-  <h1 class="header-title">NIKITA<br>SINOPALNIKOV</h1>
+  <h1 class="header-title">НИКИТА<br>СИНОПАЛЬНИКОВ</h1>
   <div class="header-subtitle">
-    <span>VIBE-DEV</span><span>PRODUCT MGR</span><span>MARKETER</span>
+    <span>ВАЙБ-КОДЕР</span><span>ПРОДУКТОВЫЙ МЕНЕДЖЕР</span><span>ИНТЕРНЕТ-МАРКЕТОЛОГ</span>
   </div>
   <div class="contacts">
     <a class="contact-item" href="tel:+79163683228"><span class="icon">☎</span> +7 (916) 368-32-28</a>
-    <a class="contact-item" href="https://t.me/nikitasinopalnikov" target="_blank"><span class="icon">✈</span> @NIKITASINOPALNIKOV</a>
+    <a class="contact-item" href="https://t.me/nikitasinopalnikov" target="_blank"><span class="icon">✈</span> @nikitasinopalnikov</a>
   </div>
   <div class="scroll-hint"><span class="blink">▼ SCROLL ▼</span></div>
 </header>
 
-<div class="section-label">// SELECT PROJECT //</div>
-<h2 class="section-title">[ PROJECTS ]<span class="blink">_</span></h2>
+<div class="section-label">// ВЫБЕРИТЕ ПРОЕКТ //</div>
+<h2 class="section-title">[ ПРОЕКТЫ ]<span class="blink">_</span></h2>
 
 <main>
 
   <!-- PROJECT 1 — 3 slides -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #001</div>
+    <div class="project-count">ПРОЕКТ #001</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 001 //</div>
         <div class="project-tag">VK ADS</div>
-        <div class="project-title">СЕРВИС ИТОГОВЫХ<br>ОТЧЁТОВ</div>
-        <div class="project-desc">Музыкальный таргетолог по завершении кампании готовит отчет pptx/pdf. Раньше — все вручную. Теперь таргетолог загружает xlsx-статистику и JPEG-креативы → получает готовый PDF. Все файлы хранятся в общей базе отдела.</div>
+        <div class="project-title">СЕРВИС ИТОГОВЫХ ОТЧЕТОВ<br>ТАРГЕТИНГОВОЙ РЕКЛАМЫ</div>
+        <div class="project-desc">Ранее музыкальный таргетолог в конце рекламной кампании в ВК Рекламе вручную готовил отчет в виде презентации (pptx/pdf). Сейчас таргетолог лишь переносит данные из кабинета ВК Рекламы (xlsx-файлы) и подгружает скриншоты креативов, а сервис автоматически создает PDF-отчет. Решение экономит до 7 рабочих часов в месяц.</div>
         <div class="stack-list">
           <span class="stack-item">JavaScript</span><span class="stack-item">CSS</span><span class="stack-item">HTML</span><span class="stack-item">Yandex Object</span><span class="stack-item">Yandex Functions</span>
         </div>
@@ -349,13 +350,13 @@
 
   <!-- PROJECT 2 — 1 slide -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #002</div>
+    <div class="project-count">ПРОЕКТ #002</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 002 //</div>
         <div class="project-tag">VK ADS</div>
-        <div class="project-title">СКРИПТ<br>«ЭКСПРЕСС-ОТЧЁТ»</div>
-        <div class="project-desc">Скрипт для подготовки экспресс-отчетов артистам. Пользователь загружает итоговые отчеты из кабинета ВК (xlsx) → скрипт создает текстовое сообщение с числовыми значениями метрик кампании.</div>
+        <div class="project-title">СКРИПТ «ЭКСПРЕСС-ОТЧЕТ»</div>
+        <div class="project-desc">Скрипт для генерации промежуточных отчетов о ходе рекламной кампании в ВК Рекламе. Таргетолог загружает данные из кабинета ВК Рекламы (xlsx), а скрипт создает текстовое сообщение и подставляет посчитанные значения метрик. Решение экономит до 8 рабочих часов в месяц.</div>
         <div class="stack-list"><span class="stack-item">HTML</span></div>
       </div>
       <div class="carousel-wrap">
@@ -379,13 +380,13 @@
 
   <!-- PROJECT 3 — 1 slide -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #003</div>
+    <div class="project-count">ПРОЕКТ #003</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 003 //</div>
         <div class="project-tag">VK ADS</div>
-        <div class="project-title">СКРИПТ<br>«МЕТРИКИ + ПРОГНОЗ»</div>
-        <div class="project-desc">Скрипт для расчета доп. метрик и прогнозирования масштабирования кампаний. Добавляет конверсии прослушивания и добавления треков, прогноз бюджета на исторических данных.</div>
+        <div class="project-title">СКРИПТ «МЕТРИКИ + ПРОГНОЗ»</div>
+        <div class="project-desc">Скрипт для расчета дополнительных метрик и прогнозирования масштабирования кампаний. Рассчитывает конверсии прослушивания и добавления треков, а также считает прогноз на исторических данных.</div>
         <div class="stack-list"><span class="stack-item">HTML</span></div>
       </div>
       <div class="carousel-wrap">
@@ -409,12 +410,12 @@
 
   <!-- PROJECT 4 — 2 slides -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #004</div>
+    <div class="project-count">ПРОЕКТ #004</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 004 //</div>
         <div class="project-tag">VK ADS</div>
-        <div class="project-title">БРАУЗЕРНОЕ<br>РАСШИРЕНИЕ<br>«VK GUARD»</div>
+        <div class="project-title">БРАУЗЕРНОЕ РАСШИРЕНИЕ «VK GUARD»</div>
         <div class="project-desc">Расширение автоматически останавливает и включает объявления в кабинете ВК Рекламы по условию — например, при превышении стоимости добавления трека.</div>
         <div class="stack-list">
           <span class="stack-item">Chrome Ext MV3</span><span class="stack-item">Service Worker</span><span class="stack-item">Vanilla JS</span><span class="stack-item">VK Ads API v2+v3</span><span class="stack-item">chrome.storage</span><span class="stack-item">chrome.alarms</span>
@@ -443,13 +444,13 @@
 
   <!-- PROJECT 5 — 3 slides -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #005</div>
+    <div class="project-count">ПРОЕКТ #005</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 005 //</div>
-        <div class="project-tag">PET PROJECT</div>
-        <div class="project-title">«SKY SOUND»<br>МУЗЫКАЛЬНЫЙ<br>ПЛЕЕР</div>
-        <div class="project-desc">Pet-проект: полноценный музыкальный плеер с поддержкой PWA, серверными функциями и edge-воркерами.</div>
+        <div class="project-tag">PET ПРОЕКТ</div>
+        <div class="project-title">«Sky Sound»</div>
+        <div class="project-desc">Музыкальный плеер с поддержкой PWA.</div>
         <div class="stack-list">
           <span class="stack-item">Vanilla JS</span><span class="stack-item">PWA</span><span class="stack-item">Yandex Functions</span><span class="stack-item">Cloudflare Workers</span>
         </div>
@@ -479,13 +480,13 @@
 
   <!-- PROJECT 6 — 3 slides -->
   <div class="project-card reveal">
-    <div class="project-count">PROJECT #006</div>
+    <div class="project-count">ПРОЕКТ #006</div>
     <div class="project-inner pixel-box">
       <div class="project-info">
         <div class="project-number">// 006 //</div>
-        <div class="project-tag">PET PROJECT</div>
-        <div class="project-title">«MY MONEY»<br>КОНТРОЛЬ<br>БЮДЖЕТА</div>
-        <div class="project-desc">Pet-проект: приложение для контроля личного бюджета с облачным хранением данных.</div>
+        <div class="project-tag">PET ПРОЕКТ</div>
+        <div class="project-title">«My Money»</div>
+        <div class="project-desc">Приложение для управления личным бюджетом с облачным хранением данных и AI-функциями.</div>
         <div class="stack-list">
           <span class="stack-item">JavaScript</span><span class="stack-item">CSS</span><span class="stack-item">HTML</span><span class="stack-item">Yandex Functions</span><span class="stack-item">Yandex Object</span>
         </div>
@@ -515,8 +516,8 @@
 
 <footer>
   <div class="footer-stars" id="stars"></div>
-  <div class="footer-game-over">START NEW GAME</div>
-  <div class="footer-insert-coin blink">— INSERT COIN TO CONTINUE —</div>
+  <div class="footer-game-over">НАЧАТЬ НОВУЮ ИГРУ</div>
+  <div class="footer-insert-coin blink">— НАПИШИТЕ, ЧТОБЫ ПРОДОЛЖИТЬ —</div>
 
   <div class="footer-avatar-wrap">
     <div class="pixel-box" style="width:120px;height:120px;">
@@ -524,15 +525,15 @@
     </div>
   </div>
 
-  <h2 class="header-title" style="font-size:clamp(12px,2.5vw,20px);margin-bottom:12px;">NIKITA SINOPALNIKOV</h2>
+  <h2 class="header-title" style="font-size:clamp(12px,2.5vw,20px);margin-bottom:12px;">НИКИТА СИНОПАЛЬНИКОВ</h2>
   <div class="header-subtitle">
-    <span>VIBE-DEV</span><span>PRODUCT MGR</span><span>MARKETER</span>
+    <span>ВАЙБ-КОДЕР</span><span>ПРОДУКТОВЫЙ МЕНЕДЖЕР</span><span>ИНТЕРНЕТ-МАРКЕТОЛОГ</span>
   </div>
   <div class="contacts" style="margin-top:30px;">
     <a class="contact-item" href="tel:+79163683228"><span class="icon">☎</span> +7 (916) 368-32-28</a>
-    <a class="contact-item" href="https://t.me/nikitasinopalnikov" target="_blank"><span class="icon">✈</span> @NIKITASINOPALNIKOV</a>
+    <a class="contact-item" href="https://t.me/nikitasinopalnikov" target="_blank"><span class="icon">✈</span> @nikitasinopalnikov</a>
   </div>
-  <div class="footer-copyright">© 2025 <span>NIKITA SINOPALNIKOV</span> // ALL RIGHTS RESERVED</div>
+  <div class="footer-copyright">© 2025</div>
 </footer>
 
 <script>
