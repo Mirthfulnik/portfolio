@@ -239,8 +239,8 @@
 
   /* ─── BASKETBALL STRIP ─── */
   .bball-strip {
-    position: relative; height: 90px; background: var(--black);
-    border-top: 3px solid var(--orange); border-bottom: 3px solid var(--orange);
+    position: sticky; top: 46px; z-index: 900; height: 50px; background: var(--black);
+    border-top: 2px solid var(--orange); border-bottom: 2px solid var(--orange);
     overflow: hidden;
   }
   .bball-canvas { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
@@ -322,7 +322,7 @@
     <div class="pixel-box" style="width:160px;height:160px;">
       <img src="assets/avatar/1.jpg" alt="Nikita Sinopalnikov">
     </div>
-    <div class="avatar-badge">В СЕТИ</div>
+    <div class="avatar-badge">ONLINE</div>
   </div>
 
   <h1 class="header-title">НИКИТА<br>СИНОПАЛЬНИКОВ</h1>
@@ -570,6 +570,12 @@
   <div class="footer-copyright">© 2025</div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">✕ ЗАКРЫТЬ</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+</div>
+
 <script>
   const carouselState = {};
 
@@ -669,7 +675,7 @@
   }
 
   // ─── BASKETBALL ────────────────────────────────────
-  (function() {
+  window.addEventListener('load', function() { (function() {
     const canvas = document.getElementById('bballCanvas');
     const ctx = canvas.getContext('2d');
     const ORANGE = '#FF6A00';
@@ -696,14 +702,13 @@
       return docH > 0 ? Math.min(1, window.scrollY / docH) : 0;
     }
 
-    // Draw pixel ball (8x8 pixel grid)
+    // Draw pixel football (black & white hexagon pattern)
     function drawBall(cx, cy, r, spin) {
-      const ps = Math.max(2, Math.floor(r / 4)); // pixel size
+      const ps = Math.max(2, Math.floor(r / 4));
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate(spin);
 
-      // Pixel circle mask — draw orange squares
       const grid = Math.ceil(r * 2 / ps);
       for (let gy = 0; gy < grid; gy++) {
         for (let gx = 0; gx < grid; gx++) {
@@ -711,43 +716,51 @@
           const py = -r + gy * ps;
           const cx2 = px + ps/2, cy2 = py + ps/2;
           if (cx2*cx2 + cy2*cy2 <= r*r) {
-            // seam lines
-            const seam = (Math.abs(cx2) < ps*0.6 || Math.abs(cy2) < ps*0.6);
-            ctx.fillStyle = seam ? '#CC5500' : ORANGE;
+            // Pixel hex pattern: black patches on white
+            const hx = Math.floor((gx + gy) / 2);
+            const isPatch = (gx % 3 === 0 && gy % 3 === 0) ||
+                            (gx % 3 === 1 && gy % 3 === 2);
+            ctx.fillStyle = isPatch ? '#111111' : WHITE;
             ctx.fillRect(Math.round(px), Math.round(py), ps, ps);
           }
         }
       }
+
       ctx.restore();
     }
 
-    // Draw pixel hoop (right side)
+    // Draw pixel goal — front view (анфас)
     function drawHoop(x, y) {
-      const bw = 6; // backboard width px
-      const bh = 36;
-      // Backboard
+      const pw = 4;
+      const floorY = H - 4;
+      const goalW = 44;
+      const goalH = floorY - y;
+
+      // Net
       ctx.fillStyle = WHITE;
-      ctx.fillRect(x, y - bh/2, bw, bh);
-      // Pole
-      ctx.fillStyle = DARK;
-      ctx.fillRect(x + bw, y, 4, H - y);
-      // Arm
-      ctx.fillStyle = WHITE;
-      ctx.fillRect(x - 28, y - 2, 28 + bw, 4);
-      // Rim - left post
-      ctx.fillStyle = ORANGE;
-      ctx.fillRect(x - 28, y + 2, 6, 4);
-      // Rim - right post
-      ctx.fillRect(x - 4, y + 2, 6, 4);
-      // Net (pixel lines)
-      ctx.fillStyle = WHITE;
-      ctx.globalAlpha = 0.5;
-      for (let i = 0; i < 5; i++) {
-        const nx = x - 26 + i * 5;
-        const nw = 2;
-        ctx.fillRect(nx, y + 6, nw, 12 + i*2);
+      ctx.globalAlpha = 0.2;
+      for (let i = 1; i < 4; i++) {
+        ctx.fillRect(x - goalW + pw, Math.round(y + i * goalH / 4), goalW - pw * 2, 2);
+      }
+      for (let i = 1; i < 4; i++) {
+        ctx.fillRect(Math.round(x - goalW + pw + i * (goalW - pw*2) / 4), y + pw, 2, goalH - pw);
       }
       ctx.globalAlpha = 1;
+
+      // Crossbar
+      ctx.fillStyle = WHITE;
+      ctx.fillRect(x - goalW, y, goalW, pw);
+
+      // Left post
+      ctx.fillRect(x - goalW, y, pw, goalH);
+
+      // Right post
+      ctx.fillRect(x - pw, y, pw, goalH);
+
+      // Orange tips on top corners
+      ctx.fillStyle = ORANGE;
+      ctx.fillRect(x - goalW, y, pw, 6);
+      ctx.fillRect(x - pw, y, pw, 6);
     }
 
     function draw() {
@@ -770,7 +783,7 @@
 
       const bounces = 5; // number of bounces
       const bx = startX + p * travelX;
-      const bounceH = Math.min(floorY - ballR - 10, (H - ballR) * 0.85);
+      const bounceH = Math.min(floorY - ballR - 10, (H - ballR * 2) * 0.7);
       const sinVal = Math.abs(Math.sin(p * Math.PI * bounces));
 
       let by, spin;
@@ -778,8 +791,8 @@
       if (p >= 0.95) {
         // Slam into hoop — arc up and in
         const ep = (p - 0.95) / 0.05; // 0→1
-        const tx = hoopX - 22; // target x (center of rim)
-        const ty = hoopY + 4;   // just inside rim
+        const tx = hoopX - 24; // target x (center of goal)
+        const ty = hoopY + 10;  // just inside goal
         by = floorY - ballR - sinVal * bounceH;
         const finalBx = startX + 0.95 * travelX;
         const lerpX = finalBx + (tx - finalBx) * ep;
@@ -797,7 +810,7 @@
           ctx.fillStyle = ORANGE;
           ctx.font = 'bold 14px monospace';
           ctx.textAlign = 'center';
-          ctx.fillText('+500 ОЧКОВ!', hoopX - 20, hoopY - 30 - scoreAnim * 20);
+          ctx.fillText('ГОЛ! +500!', hoopX - 20, hoopY - 20 - scoreAnim * 20);
           ctx.restore();
         }
       } else {
@@ -821,14 +834,8 @@
 
     draw();
     window.addEventListener('scroll', () => {}, { passive: true });
-  })();
+  })(); });
 
 </script>
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose">✕ ЗАКРЫТЬ</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
-</div>
-
 </body>
 </html>
